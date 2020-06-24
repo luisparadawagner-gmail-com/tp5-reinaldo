@@ -1,3 +1,5 @@
+import { LeerListadoService } from './servicios/leer-listado.service';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -24,9 +26,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatMenuModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LeerListadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

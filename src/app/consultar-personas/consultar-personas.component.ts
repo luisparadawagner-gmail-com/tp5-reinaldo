@@ -3,6 +3,7 @@ import { Persona } from '../clases/persona';
 import { Router } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { LeerListadoService } from '../servicios/leer-listado.service';
 
 export interface Tabla {
   
@@ -13,13 +14,6 @@ export interface Tabla {
   direccion: string;
 }
 
-const ELEMENT_DATA: Tabla[] = [
-  {posicion: 1, nombre: 'Pepe', apellido: 'Argento', edad: 43, direccion: 'abc'},
-  {posicion: 2, nombre: 'Roberto', apellido: 'Carlos', edad: 50, direccion: 'abc'},
-  {posicion: 3, nombre: 'Juan', apellido: 'Lopez', edad: 30, direccion: 'abc'},
-  {posicion: 4, nombre: 'Cacho', apellido: 'Castaña', edad: 65, direccion: 'abc'},
-  {posicion: 5, nombre: 'Esteban', apellido: 'Quito', edad: 18, direccion: 'abc'}
-];
 
 @Component({
   selector: 'app-consultar-personas',
@@ -29,11 +23,20 @@ const ELEMENT_DATA: Tabla[] = [
 export class ConsultarPersonasComponent implements OnInit {
 
   displayedColumns: string[] = ['posicion', 'nombre', 'apellido', 'edad', 'direccion', 'accion'];
-  dataSource = ELEMENT_DATA;
+  dataSource: any[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private leerListadoService: LeerListadoService ) { }
 
   ngOnInit(): void {
+    this.getPersonas();
+  }
+
+  getPersonas() {
+    debugger;
+    this.leerListadoService.getPersonas().subscribe((personas) => {
+      debugger;
+      this.dataSource = personas;
+    });
   }
 
   onModificar(elemento: Tabla) {

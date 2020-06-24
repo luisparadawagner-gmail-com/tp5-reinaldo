@@ -1,1 +1,19 @@
-<p>crear-persona works!</p>
+<p>Formulario B de Verificacion y Modificacion de Datos Personales</p>
+
+<form [formGroup]='personaForm'>
+    <div class="datosPersona">
+        <label>Nombre
+            <input type="text" formControlName="nombre">
+        </label>
+        <label>Apellido
+            <input type="text" formControlName="apellido">
+        </label>
+        <label>Edad
+            <input type="text" formControlName="edad">
+        </label>
+        <label>Direccion
+            <input type="text" formControlName="direccion">
+        </label>
+    </div>
+    
+</form>

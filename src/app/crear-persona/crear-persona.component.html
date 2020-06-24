@@ -1,4 +1,4 @@
-<p>Formulario B de Verificacion y Modificacion de Datos Personales</p>
+<p>Formulario de Creacion y Edición de Datos Personales</p>
 
 <form [formGroup]='personaForm'>
     <div class="datosPersona">
@@ -16,4 +16,6 @@
         </label>
     </div>
     
+    <button mat-stroked-button (click)="onEnviarPersona()">Enviar Datos</button>
+
 </form>

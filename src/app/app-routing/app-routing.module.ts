@@ -6,9 +6,10 @@ import { ConsultarPersonasComponent } from '../consultar-personas/consultar-pers
 
 
 const routes: Routes = [
-
+        {path: 'app-consultar-personas', component: ConsultarPersonasComponent },
         {path: 'app-crear-persona', component: CrearPersonaComponent },
-        {path: 'app-consultar-personas', component: ConsultarPersonasComponent }
+        { path: '',   redirectTo: 'app-consultar-personas', pathMatch: 'full' },
+        
     ];
 
 @NgModule({

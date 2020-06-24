@@ -10,4 +10,5 @@ export class LeerListadoService {
   getPersonas(): Observable<any> {
       return this.httpClient.get('./../assets/listapersonas.json');
   }
+
 }

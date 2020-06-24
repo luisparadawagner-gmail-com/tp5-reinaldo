@@ -1,19 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../clases/persona';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { LeerListadoService } from '../servicios/leer-listado.service';
-
-export interface Tabla {
-  
-  posicion: number;
-  nombre: string;
-  apellido: string;
-  edad: number;
-  direccion: string;
-}
-
 
 @Component({
   selector: 'app-consultar-personas',
@@ -22,13 +12,16 @@ export interface Tabla {
 })
 export class ConsultarPersonasComponent implements OnInit {
 
-  displayedColumns: string[] = ['posicion', 'nombre', 'apellido', 'edad', 'direccion', 'accion'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'edad', 'direccion', 'accion'];
   dataSource: any[] = [];
 
-  constructor(private router: Router, private leerListadoService: LeerListadoService ) { }
+  constructor(private router: Router, private leerListadoService: LeerListadoService, private route: ActivatedRoute ) { }
+
+  param: any;
 
   ngOnInit(): void {
     this.getPersonas();
+    debugger;
   }
 
   getPersonas() {
@@ -36,10 +29,22 @@ export class ConsultarPersonasComponent implements OnInit {
     this.leerListadoService.getPersonas().subscribe((personas) => {
       debugger;
       this.dataSource = personas;
+
+    this.param = this.route.snapshot.params;
+    if (Object.keys(this.param).length) {
+			this.recibirPersona(this.param);
+		}
+
     });
   }
 
-  onModificar(elemento: Tabla) {
+  recibirPersona(persona: Persona) {
+      debugger;
+      this.dataSource.push(persona);
+    };
+  
+
+  onModificar(elemento) {
     debugger;
 
     let personaTemp: Persona = {

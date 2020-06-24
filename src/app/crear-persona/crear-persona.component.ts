@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Persona } from '../clases/persona';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-persona',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CrearPersonaComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}   
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {}   
 
   param: any;
   personaForm: FormGroup;
@@ -44,5 +44,11 @@ ngOnInit() {
         direccion: [ '' ]
       });
     }
+
+    onEnviarPersona(){
+      let personaTemp: Persona = this.personaForm.value;
+      this.router.navigate(['app-consultar-personas', personaTemp])
+      debugger;
+    };
 
 }

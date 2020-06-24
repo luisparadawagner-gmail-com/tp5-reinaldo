@@ -1,5 +1,5 @@
-[ {"posicion": 1, "nombre": "Pepe", "apellido": "Argento", "edad": 43, "direccion": "abc"},
-  {"posicion": 2, "nombre": "Roberto", "apellido": "Carlos", "edad": 50, "direccion": "abc"},
-  {"posicion": 3, "nombre": "Juan", "apellido": "Lopez", "edad": 30, "direccion": "abc"},
-  {"posicion": 4, "nombre": "Cacho", "apellido": "Castaña", "edad": 65, "direccion": "abc"},
-  {"posicion": 5, "nombre": "Esteban", "apellido": "Quito", "edad": 18, "direccion": "abc"} ]
+[ {"nombre": "Pepe", "apellido": "Argento", "edad": 43, "direccion": "abc"},
+  {"nombre": "Roberto", "apellido": "Carlos", "edad": 50, "direccion": "abc"},
+  {"nombre": "Juan", "apellido": "Lopez", "edad": 30, "direccion": "abc"},
+  {"nombre": "Cacho", "apellido": "Castaña", "edad": 65, "direccion": "abc"},
+  {"nombre": "Esteban", "apellido": "Quito", "edad": 18, "direccion": "abc"} ]
